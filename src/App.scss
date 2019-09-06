@@ -1,5 +1,33 @@
 @import 'setup';
 
+.flex {
+  display:flex;
+}
+
+.basis-25{
+  flex-basis: 50%;
+}
+
+.basis-50{
+  flex-basis: 50%;
+}
+
+.basis-75{
+  flex-basis: 50%;
+}
+
+.basis-100{
+  flex-basis: 100%;
+}
+
+.flex-row{
+  flex-direction: row;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
 .App {
   text-align: center;
 

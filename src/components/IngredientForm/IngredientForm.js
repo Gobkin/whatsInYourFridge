@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import AutocompleteText from '../AutocompleteText/AutocompleteText';
 import './IngredientsForm.css';
 import PickedItem from '../PickedItem/PickedItem';
+import SearchRecipe from '../SearchRecipeIds/SearchRecipeIds';
 
 class IngredientForm extends Component{
     constructor(){
         super();
-        this.state={
+        this.state = {
             pickedIngedients:[],
             numberOfItems:'',
             disabled:false,
+
         }
     }
 
@@ -36,7 +37,7 @@ class IngredientForm extends Component{
         })
     }
 
-    render(){
+    render(props){
         return(
             <div className="IngredientForm">
                 <form>
@@ -56,6 +57,10 @@ class IngredientForm extends Component{
                         );
                     })}
                 </ul>
+                <SearchRecipe 
+                    ingredients={this.state.pickedIngedients}
+                    getIds={this.props.getIds}
+                />
             </div>
         )
     }

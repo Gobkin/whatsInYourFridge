@@ -1,0 +1,19 @@
+.RecipeCard {
+  border: 2px solid black;
+  margin: 20px;
+  border-radius: 25px;
+}
+
+.RecipeCard .image-container {
+  max-width: 150px;
+  height: auto;
+  margin: 30px;
+}
+
+.RecipeCard .image-container img {
+  max-width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+/*# sourceMappingURL=RecipeCard.css.map */

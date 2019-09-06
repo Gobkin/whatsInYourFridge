@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAA;EACP,MAAM,EAAC,eAAe;EACtB,MAAM,EAAC,IAAI;EACX,aAAa,EAAE,IAAI;CAWtB;;AAdD,AAKI,WALO,CAKP,gBAAgB,CAAA;EACZ,SAAS,EAAC,KAAK;EACf,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,IAAI;CAKf;;AAbL,AASQ,WATG,CAKP,gBAAgB,CAIZ,GAAG,CAAA;EACC,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,MAAM;CACrB",
+    "sources": [
+        "RecipeCard.scss"
+    ],
+    "names": [],
+    "file": "RecipeCard.css"
+}

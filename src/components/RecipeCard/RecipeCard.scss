@@ -1,0 +1,15 @@
+.RecipeCard{
+    border:2px solid black;
+    margin:20px;
+    border-radius: 25px;
+
+    .image-container{
+        max-width:150px;
+        height: auto;
+        margin: 30px;
+        img{
+            max-width: 100%;
+            align-self: center;
+        }
+    }
+}
