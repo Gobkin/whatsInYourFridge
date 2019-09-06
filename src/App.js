@@ -15,6 +15,7 @@ class App extends Component {
   }
 
   getIds = (idArray) => {
+    console.log(this.state.recipeIds);
     this.setState({
         recipeIds:idArray,
     })

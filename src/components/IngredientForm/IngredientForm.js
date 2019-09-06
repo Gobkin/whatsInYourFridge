@@ -37,7 +37,7 @@ class IngredientForm extends Component{
         })
     }
 
-    render(props){
+    render(){
         return(
             <div className="IngredientForm">
                 <form>

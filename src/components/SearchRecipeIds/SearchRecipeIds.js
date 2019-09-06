@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 function SearchRecipe(props){
-    
+    console.log(props.ingredients);
     const RECIPE_API_URL = 'https://www.themealdb.com/api/json/v2/8673533/filter.php?';
     const foundRecipesIds = [];
     let queryString = ''
