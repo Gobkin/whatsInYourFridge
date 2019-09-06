@@ -58,6 +58,7 @@ class AutocompleteText extends Component{
                 {suggestions.map( item => <li onClick={ () => {
                     this.selectedSuggestion(item);
                     this.props.addIngredient(item);
+                    this.props.searchRecipe(item);
                 } }>{item}</li>)}
             </ul>
         );

@@ -11,7 +11,7 @@ function SearchRecipe(props){
     })
     let queryUrl = `${RECIPE_API_URL}i=${queryString}`
     
-    // this one here removes the trailing coma at the end
+    // this one here removes the trailing coma at the end of the query string;
     axios.get(queryUrl.substring(0, queryUrl.length - 1))
     .then(res =>{
         res.data.meals.forEach(recipe => {
@@ -19,11 +19,11 @@ function SearchRecipe(props){
         });
     });
     
-    return(
-        <div>
-            <button onClick={()=>{props.getIds(foundRecipesIds)}}>Find Meals</button>
-        </div>
-    )
+    // return(
+    //     <div>
+    //         <button onClick={()=>{props.getIds(foundRecipesIds)}}>Find Meals</button>
+    //     </div>
+    // )
 }
 
 export default SearchRecipe;

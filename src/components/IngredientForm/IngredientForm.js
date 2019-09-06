@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AutocompleteText from '../AutocompleteText/AutocompleteText';
 import './IngredientsForm.css';
 import PickedItem from '../PickedItem/PickedItem';
-import SearchRecipe from '../SearchRecipeIds/SearchRecipeIds';
+
 
 class IngredientForm extends Component{
     constructor(){
@@ -17,14 +17,13 @@ class IngredientForm extends Component{
 
     addToList = (ingredient) => {
         const ingredientsArray = this.state.pickedIngedients;
+        console.log('adding shit to list');
         ingredientsArray.push(ingredient);
         this.setState({
             pickedIngedients:ingredientsArray,
             numberOfItems:ingredientsArray.length,
+            disabled:this.state.numberOfItems === 2?true:false,
         });
-        if (this.state.numberOfItems === 2){
-            this.setState( {disabled: !this.state.disabled} )
-        }
     }
 
     deleteItem = (listItem) => {
@@ -34,18 +33,22 @@ class IngredientForm extends Component{
             pickedIngedients:modifiedArray,
             numberOfItems: numberOfItems,
             disabled: false,
-        })
+        },()=>{
+            // this.props.getIds(this.state.pickedIngedients);
+        });
     }
-
-    render(props){
+    
+    render(){
         return(
             <div className="IngredientForm">
                 <form>
                     <AutocompleteText
                         addIngredient={this.addToList}
                         disabled={this.state.disabled}
+                        searchRecipe={this.props.searchRecipe}
                     />
                 </form>
+
                 <ul>
                     {this.state.pickedIngedients.map((ingredient) => {
                         return(
@@ -57,10 +60,6 @@ class IngredientForm extends Component{
                         );
                     })}
                 </ul>
-                <SearchRecipe 
-                    ingredients={this.state.pickedIngedients}
-                    getIds={this.props.getIds}
-                />
             </div>
         )
     }
