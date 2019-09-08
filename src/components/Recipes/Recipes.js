@@ -8,7 +8,7 @@ class Recipes extends Component{
         this.state = {
             // currentProps : {},//IDK MB JUST HAVE TO BE A FUNCTION CONSIDER REFACTOR LATER!!!!!!!!!!!!!
             foundRecipeIds:[],
-            // pickedIngredients:[],
+
         }
     }
 
@@ -41,27 +41,23 @@ class Recipes extends Component{
         });
     }
 
-    componentDidMount(){
-        console.log('i mounted');
-        const {pickedIngredients}= this.props;
-        this.searchRecipeIds(pickedIngredients);
-    }
-
+    
     componentDidUpdate(prevProps, prevState){
-        // debugger
-        // console.log('i updated');
-        // console.log(prevProps);
-        // console.log(prevProps);
-        const {pickedIngredients}= this.props;
+        const {pickedIngredients} = this.props;
         console.log('pickedIngredients ',pickedIngredients)
-        if (pickedIngredients.length !== prevProps.pickedIngredients.length){
+        if (pickedIngredients !== prevProps.pickedIngredients){
             console.log('updating.stuff');
             this.searchRecipeIds(pickedIngredients);
         }else{
             console.log('props the same');
         }
     }
-
+    
+    componentDidMount(){
+        console.log('i mounted');
+        const {pickedIngredients}= this.props;
+        this.searchRecipeIds(pickedIngredients);
+    }
     render(){
         const {foundRecipeIds} = this.state
         return(

@@ -15,13 +15,14 @@ class IngredientForm extends Component{
     }
     
     addToList = (ingredient) => {
-        const {pickedIngredients} = this.props;
-        pickedIngredients.push(ingredient);
+        // this one here to prevent mutability because... react
+        const pickedIngredientsClone = [...this.props.pickedIngredients];
+        pickedIngredientsClone.push(ingredient);
         this.setState({
-            numberOfItems:pickedIngredients.length,
-            disabled:this.state.numberOfItems === 2?true:false,
+            numberOfItems:pickedIngredientsClone.length,
+            disabled:(this.state.numberOfItems === 2?true:false),
         }, ()=>{
-            this.props.getIds(pickedIngredients);
+            this.props.getIds(pickedIngredientsClone);
         });
     }
 

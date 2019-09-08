@@ -9,9 +9,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      recipeIds : [],
       pickedItems: [],
-      recipeResults: [],
 
     }
   }
@@ -22,18 +20,11 @@ class App extends Component {
     });
   }
 
-  getRecipes = (array) =>{
-    debugger
-    this.setState({
-      recipeIds: array,
-    })
-  }
-
   render(){
-    const {pickedItems, recipeIds} = this.state;
+    const {pickedItems} = this.state;
     return (
       <div className="App flex flex-column">
-        <div className="input basis-100">
+        <div className="input basis-100 border">
           
           <IngredientForm
             pickedIngredients={pickedItems}
@@ -42,19 +33,26 @@ class App extends Component {
           />
         </div>
         
-        <div className="flex basis-100">
-          <div className="basis-100">
+        <div className="flex basis-100 border">
+          <div className="basis-75">
             {
               pickedItems.length?
             <Recipes 
               pickedIngredients={pickedItems}
-              // getRecipes={this.getRecipes}
-              recipeIds={recipeIds}
             />:
-            <h1>Make some picks</h1>}
+            <h2>Pick Some Ingredients First!</h2>}
           </div>
+
+          <div className="ShoppingList border basis-25">
+                
+          </div>
+
+
         </div>
+
       </div>
+
+
     );
   }
 }

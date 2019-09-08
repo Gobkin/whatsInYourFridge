@@ -37,10 +37,14 @@ class SearchRecipeData extends Component{
     }
 
     componentDidUpdate(prevProps){
-        // if (this.props.pickedIngredients.length != prevProps.pickedIngredients.length){
+        console.log(prevProps);
+        console.log(this.props);
+        if (this.props.recipeIds != prevProps.recipeIds){
+            const { recipeIds }= this.props;
+            this.findRecipeData(recipeIds);
         //     console.log('updating.stuff');
         //     this.searchRecipeIds(this.props.pickedIngredients);
-        // }
+        }
     }
     
     render(){
