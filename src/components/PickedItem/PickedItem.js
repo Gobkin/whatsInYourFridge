@@ -1,10 +1,11 @@
 import React from 'react';
 
 function PickedItem(props){
+    const {ingredient} = props;
     return(
         <div>
-            {props.ingredient}
-            <button onClick={()=> props.deleteItem(props.ingredient)}>X</button>
+            {ingredient}
+            <button onClick={()=> props.deleteItem(ingredient)}>X</button>
         </div>
     )
 }

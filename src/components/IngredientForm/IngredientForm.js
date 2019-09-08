@@ -2,52 +2,61 @@ import React, { Component } from 'react';
 import AutocompleteText from '../AutocompleteText/AutocompleteText';
 import './IngredientsForm.css';
 import PickedItem from '../PickedItem/PickedItem';
-import SearchRecipe from '../SearchRecipeIds/SearchRecipeIds';
+
 
 class IngredientForm extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            pickedIngedients:[],
             numberOfItems:'',
             disabled:false,
 
         }
     }
-
+    
     addToList = (ingredient) => {
-        const ingredientsArray = this.state.pickedIngedients;
-        ingredientsArray.push(ingredient);
+        // this one here to prevent mutability because... react
+        const pickedIngredientsClone = [...this.props.pickedIngredients];
+        pickedIngredientsClone.push(ingredient);
         this.setState({
-            pickedIngedients:ingredientsArray,
-            numberOfItems:ingredientsArray.length,
+            numberOfItems:pickedIngredientsClone.length,
+            disabled:(this.state.numberOfItems === 2?true:false),
+        }, ()=>{
+            this.props.getIds(pickedIngredientsClone);
         });
-        if (this.state.numberOfItems === 2){
-            this.setState( {disabled: !this.state.disabled} )
-        }
     }
 
-    deleteItem = (listItem) => {
-        const numberOfItems = this.state.pickedIngedients.length - 1;
-        const modifiedArray = this.state.pickedIngedients.filter( item => {return item !== listItem});
+    deleteItem = (ingredient) => {
+        const {pickedIngredients} = this.props;
+        const numberOfItems = pickedIngredients.length - 1;
+        const modifiedArray = pickedIngredients.filter( item => {return item !== ingredient});
         this.setState({
-            pickedIngedients:modifiedArray,
             numberOfItems: numberOfItems,
             disabled: false,
-        })
+        },() => {
+            this.props.getIds(modifiedArray);
+        });
     }
+<<<<<<< HEAD
 
     render(){
+=======
+    
+    render(){
+        
+>>>>>>> fix-state
         return(
             <div className="IngredientForm">
                 <form>
                     <AutocompleteText
                         addIngredient={this.addToList}
                         disabled={this.state.disabled}
+                        searchRecipe={this.props.searchRecipe}
                     />
                 </form>
+
                 <ul>
-                    {this.state.pickedIngedients.map((ingredient) => {
+                    {this.props.pickedIngredients.map((ingredient) => {
                         return(
                             <PickedItem
                                 ingredient={ingredient}
@@ -57,10 +66,6 @@ class IngredientForm extends Component{
                         );
                     })}
                 </ul>
-                <SearchRecipe 
-                    ingredients={this.state.pickedIngedients}
-                    getIds={this.props.getIds}
-                />
             </div>
         )
     }

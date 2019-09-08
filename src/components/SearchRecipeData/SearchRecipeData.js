@@ -12,13 +12,11 @@ class SearchRecipeData extends Component{
         }
     }
 
-    componentDidMount(){
+    findRecipeData = (array) =>{
         const RECIPE_API_URL = 'https://www.themealdb.com/api/json/v2/8673533/lookup.php?'
-        
-        const recipeIds = this.props.recipeIds;
         const recipePromises = [];
         const recipeResults = [];
-        recipeIds.forEach(id => {
+        array.forEach(id => {
             const requestParams ={params: { i: id }} ;
             const recipePromise = axios.get(RECIPE_API_URL, requestParams);
             recipePromises.push(recipePromise);
@@ -32,12 +30,28 @@ class SearchRecipeData extends Component{
             this.setState({recipeResults});
         });
     }
+
+    componentDidMount(){
+        const { recipeIds }= this.props;
+        this.findRecipeData(recipeIds);
+    }
+
+    componentDidUpdate(prevProps){
+        console.log(prevProps);
+        console.log(this.props);
+        if (this.props.recipeIds != prevProps.recipeIds){
+            const { recipeIds }= this.props;
+            this.findRecipeData(recipeIds);
+        //     console.log('updating.stuff');
+        //     this.searchRecipeIds(this.props.pickedIngredients);
+        }
+    }
     
     render(){
-        
+        const {recipeResults} = this.state;
         return(
             <div>
-                {this.state.recipeResults.length?<RenderCards data={this.state.recipeResults}/>:'Wait a sec plz!'} 
+                {recipeResults.length?<RenderCards data={recipeResults}/>:'Wait a sec plz!'} 
             </div>
         )
     }
