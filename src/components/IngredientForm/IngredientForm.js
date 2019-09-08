@@ -32,12 +32,13 @@ class IngredientForm extends Component{
         this.setState({
             numberOfItems: numberOfItems,
             disabled: false,
-        },()=>{
+        },() => {
             this.props.getIds(modifiedArray);
         });
     }
     
     render(){
+        
         return(
             <div className="IngredientForm">
                 <form>

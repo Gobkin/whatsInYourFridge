@@ -23,18 +23,20 @@ class App extends Component {
   }
 
   getRecipes = (array) =>{
+    debugger
     this.setState({
       recipeIds: array,
     })
   }
 
   render(){
+    const {pickedItems, recipeIds} = this.state;
     return (
       <div className="App flex flex-column">
         <div className="input basis-100">
           
           <IngredientForm
-            pickedIngredients={this.state.pickedItems}
+            pickedIngredients={pickedItems}
             getIds={this.getIds}
             searchRecipe={this.searchRecipe}
           />
@@ -42,11 +44,12 @@ class App extends Component {
         
         <div className="flex basis-100">
           <div className="basis-100">
-            {this.state.pickedItems.length?
+            {
+              pickedItems.length?
             <Recipes 
-              pickedIngredients={this.state.pickedItems}
-              getRecipes={this.getRecipes}
-              recipeIds={this.state.recipeIds}
+              pickedIngredients={pickedItems}
+              // getRecipes={this.getRecipes}
+              recipeIds={recipeIds}
             />:
             <h1>Make some picks</h1>}
           </div>

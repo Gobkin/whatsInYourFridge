@@ -1,50 +1,75 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SearchRecipeData from '../SearchRecipeData/SearchRecipeData';
-import SearchRecipe from '../SearchRecipeIds/SearchRecipeIds';
 
 class Recipes extends Component{
     constructor(props){
         super(props);
         this.state = {
             // currentProps : {},//IDK MB JUST HAVE TO BE A FUNCTION CONSIDER REFACTOR LATER!!!!!!!!!!!!!
-            // foundRecipeIds:[],
+            foundRecipeIds:[],
+            // pickedIngredients:[],
         }
     }
 
     searchRecipeIds = (array) =>{
-        console.log('searching for recipes')
-        const foundRecipesIds = [];
+        console.log(array);
+        const pickedIngredients = array;
+        const foundRecipeIds = [];
         const RECIPE_API_URL = 'https://www.themealdb.com/api/json/v2/8673533/filter.php?';
         let queryString = ''
-
         array.forEach(item => {
             queryString = queryString + item +',';
         });
         // this one here removes the trailing coma at the end of the query string;
         const apiParams = { params:{i: queryString.substring(0, queryString.length - 1)} }
-
+        
         axios.get(RECIPE_API_URL, apiParams)
         .then(res =>{
+            console.log('i do async stuff');
+            console.log(res);
             if (res.data.meals) {
                 res.data.meals.forEach(recipe => {
-                    foundRecipesIds.push(recipe.idMeal);
+                    foundRecipeIds.push(recipe.idMeal);
                 });
             }
+            console.log('setting recipe state');
+            this.setState({
+                foundRecipeIds,
+                pickedIngredients,
+            });
         });
+    }
 
-        return foundRecipesIds;
+    componentDidMount(){
+        console.log('i mounted');
+        const {pickedIngredients}= this.props;
+        this.searchRecipeIds(pickedIngredients);
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        // debugger
+        // console.log('i updated');
+        // console.log(prevProps);
+        // console.log(prevProps);
+        const {pickedIngredients}= this.props;
+        console.log('pickedIngredients ',pickedIngredients)
+        if (pickedIngredients.length !== prevProps.pickedIngredients.length){
+            console.log('updating.stuff');
+            this.searchRecipeIds(pickedIngredients);
+        }else{
+            console.log('props the same');
+        }
     }
 
     render(){
-        const data = this.searchRecipeIds(this.props.pickedIngredients);
+        const {foundRecipeIds} = this.state
         return(
             <div>
                 {
-                    this.props.pickedIngredients.length?
-                    // <h2>coming soon</h2>
+                    foundRecipeIds.length?
                     <SearchRecipeData 
-                        data={data}
+                        recipeIds={foundRecipeIds}
                     />
                     :
                     <h3>One moment!</h3>

@@ -33,7 +33,8 @@ class AutocompleteText extends Component{
         let suggestions = [];
         if (value.length > 0){
             const regex = new RegExp(`^${value}`, 'i');
-            suggestions = this.state.listItems.sort().filter(v => regex.test(v));
+            const { listItems } = this.state;
+            suggestions = listItems.sort().filter(v => regex.test(v));
         }
         this.setState({ 
             suggestions, 
@@ -41,7 +42,7 @@ class AutocompleteText extends Component{
         });
     }
 
-    selectedSuggestion (value){
+    selectedSuggestion (){
         this.setState({
             text:'', 
             suggestions: [],
@@ -56,9 +57,8 @@ class AutocompleteText extends Component{
         return (
             <ul>
                 {suggestions.map( item => <li onClick={ () => {
-                    this.selectedSuggestion(item);
+                    this.selectedSuggestion();
                     this.props.addIngredient(item);
-                    // this.props.searchRecipe(item);
                 } }>{item}</li>)}
             </ul>
         );
