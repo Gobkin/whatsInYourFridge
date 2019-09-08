@@ -58,7 +58,7 @@ class AutocompleteText extends Component{
                 {suggestions.map( item => <li onClick={ () => {
                     this.selectedSuggestion(item);
                     this.props.addIngredient(item);
-                    this.props.searchRecipe(item);
+                    // this.props.searchRecipe(item);
                 } }>{item}</li>)}
             </ul>
         );
@@ -76,8 +76,8 @@ class AutocompleteText extends Component{
                 <input 
                     value={this.props.disabled?'Max 3 allowed':text} 
                     onChange={this.onTextChange} 
-                    type="text"
                     disabled={this.props.disabled}
+                    type="text"
                 />
                 {this.renderSuggestions()}
             </div>

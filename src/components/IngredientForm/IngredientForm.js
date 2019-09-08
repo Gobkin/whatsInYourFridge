@@ -5,36 +5,35 @@ import PickedItem from '../PickedItem/PickedItem';
 
 
 class IngredientForm extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            pickedIngedients:[],
             numberOfItems:'',
             disabled:false,
 
         }
     }
-
+    
     addToList = (ingredient) => {
-        const ingredientsArray = this.state.pickedIngedients;
-        console.log('adding shit to list');
-        ingredientsArray.push(ingredient);
+        const {pickedIngredients} = this.props;
+        pickedIngredients.push(ingredient);
         this.setState({
-            pickedIngedients:ingredientsArray,
-            numberOfItems:ingredientsArray.length,
+            numberOfItems:pickedIngredients.length,
             disabled:this.state.numberOfItems === 2?true:false,
+        }, ()=>{
+            this.props.getIds(pickedIngredients);
         });
     }
 
-    deleteItem = (listItem) => {
-        const numberOfItems = this.state.pickedIngedients.length - 1;
-        const modifiedArray = this.state.pickedIngedients.filter( item => {return item !== listItem});
+    deleteItem = (ingredient) => {
+        const {pickedIngredients} = this.props;
+        const numberOfItems = pickedIngredients.length - 1;
+        const modifiedArray = pickedIngredients.filter( item => {return item !== ingredient});
         this.setState({
-            pickedIngedients:modifiedArray,
             numberOfItems: numberOfItems,
             disabled: false,
         },()=>{
-            // this.props.getIds(this.state.pickedIngedients);
+            this.props.getIds(modifiedArray);
         });
     }
     
@@ -50,7 +49,7 @@ class IngredientForm extends Component{
                 </form>
 
                 <ul>
-                    {this.state.pickedIngedients.map((ingredient) => {
+                    {this.props.pickedIngredients.map((ingredient) => {
                         return(
                             <PickedItem
                                 ingredient={ingredient}
