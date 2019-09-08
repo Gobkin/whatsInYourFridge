@@ -14,12 +14,7 @@ class App extends Component {
     }
   }
 
-<<<<<<< HEAD
-  getIds = (idArray) => {
-    console.log(this.state.recipeIds);
-=======
   getIds = (array) => {
->>>>>>> fix-state
     this.setState({
       pickedItems:array,
     });

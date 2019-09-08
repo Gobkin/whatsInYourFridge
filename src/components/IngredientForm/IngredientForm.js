@@ -37,14 +37,9 @@ class IngredientForm extends Component{
             this.props.getIds(modifiedArray);
         });
     }
-<<<<<<< HEAD
-
-    render(){
-=======
     
     render(){
         
->>>>>>> fix-state
         return(
             <div className="IngredientForm">
                 <form>
