@@ -37,13 +37,9 @@ class SearchRecipeData extends Component{
     }
 
     componentDidUpdate(prevProps){
-        console.log(prevProps);
-        console.log(this.props);
         if (this.props.recipeIds != prevProps.recipeIds){
             const { recipeIds }= this.props;
             this.findRecipeData(recipeIds);
-        //     console.log('updating.stuff');
-        //     this.searchRecipeIds(this.props.pickedIngredients);
         }
     }
     
@@ -51,7 +47,13 @@ class SearchRecipeData extends Component{
         const {recipeResults} = this.state;
         return(
             <div>
-                {recipeResults.length?<RenderCards data={recipeResults}/>:'Wait a sec plz!'} 
+                {recipeResults.length?
+                <RenderCards 
+                    data={recipeResults}
+                    getShoppingItems={this.props.getShoppingItems}
+                    shoppingItems={this.props.shoppingItems}
+                />:
+                'Wait a sec plz!'} 
             </div>
         )
     }

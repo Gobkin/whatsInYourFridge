@@ -13,7 +13,6 @@ class Recipes extends Component{
     }
 
     searchRecipeIds = (array) =>{
-        console.log(array);
         const pickedIngredients = array;
         const foundRecipeIds = [];
         const RECIPE_API_URL = 'https://www.themealdb.com/api/json/v2/8673533/filter.php?';
@@ -26,14 +25,11 @@ class Recipes extends Component{
         
         axios.get(RECIPE_API_URL, apiParams)
         .then(res =>{
-            console.log('i do async stuff');
-            console.log(res);
             if (res.data.meals) {
                 res.data.meals.forEach(recipe => {
                     foundRecipeIds.push(recipe.idMeal);
                 });
             }
-            console.log('setting recipe state');
             this.setState({
                 foundRecipeIds,
                 pickedIngredients,
@@ -44,17 +40,12 @@ class Recipes extends Component{
     
     componentDidUpdate(prevProps, prevState){
         const {pickedIngredients} = this.props;
-        console.log('pickedIngredients ',pickedIngredients)
         if (pickedIngredients !== prevProps.pickedIngredients){
-            console.log('updating.stuff');
             this.searchRecipeIds(pickedIngredients);
-        }else{
-            console.log('props the same');
         }
     }
     
     componentDidMount(){
-        console.log('i mounted');
         const {pickedIngredients}= this.props;
         this.searchRecipeIds(pickedIngredients);
     }
@@ -66,6 +57,8 @@ class Recipes extends Component{
                     foundRecipeIds.length?
                     <SearchRecipeData 
                         recipeIds={foundRecipeIds}
+                        getShoppingItems={this.props.getShoppingItems}
+                        shoppingItems={this.props.shoppingItems}
                     />
                     :
                     <h3>One moment!</h3>
