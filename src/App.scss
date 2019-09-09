@@ -1,5 +1,11 @@
 @import 'setup';
 
+
+// prevents shift when scrollbar appears
+html {
+  overflow-y: scroll;
+}
+
 .flex {
   display:flex;
 }
@@ -38,7 +44,11 @@
   text-align: center;
 
   .input{
-    width:200px;
+    width:300px;
+  }
+  
+  header{
+    height: 30vh;
   }
 }
 

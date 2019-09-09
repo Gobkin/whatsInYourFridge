@@ -179,6 +179,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   overflow: hidden;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -230,6 +234,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .App .input {
-  width: 200px;
+  width: 300px;
+}
+
+.App header {
+  height: 30vh;
 }
 /*# sourceMappingURL=App.css.map */

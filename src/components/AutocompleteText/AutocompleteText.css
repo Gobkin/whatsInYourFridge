@@ -1,7 +1,7 @@
 .AutocompleteText {
   width: 100%;
-  border: 1px solid grey;
   margin: 10px;
+  position: relative;
 }
 
 .AutocompleteText input {
@@ -13,6 +13,11 @@
   text-align: left;
   margin: 0;
   padding: 0;
+  z-index: 2;
+  background: grey;
+  position: absolute;
+  width: 100%;
+  border: 1px solid black;
 }
 
 .AutocompleteText ul li {

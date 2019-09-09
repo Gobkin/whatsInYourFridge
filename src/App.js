@@ -47,14 +47,16 @@ class App extends Component {
     const {pickedItems, shoppingItems} = this.state;
     return (
       <div className="App flex flex-column">
-        <div className="input basis-100 border">
-          
-          <IngredientForm
-            pickedIngredients={pickedItems}
-            getIds={this.getIds}
-            searchRecipe={this.searchRecipe}
-          />
-        </div>
+        <header className="border">
+          <div className="input basis-100">
+            
+            <IngredientForm
+              pickedIngredients={pickedItems}
+              getIds={this.getIds}
+              searchRecipe={this.searchRecipe}
+            />
+          </div>
+        </header>
         
         <div className="flex basis-100 border">
           <div className="basis-75 border">
