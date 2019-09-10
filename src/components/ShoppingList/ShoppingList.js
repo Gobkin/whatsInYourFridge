@@ -29,7 +29,7 @@ class ShoppingList extends Component{
                         <li className="flex spaceBetween alignCenter" key="item">
                             {item}
                             <button class="delete" onClick={()=>{this.props.removeItem(item)}}>
-                                <DeleteIcon/>
+                                <DeleteIcon aria-label="delete"/>
                             </button>
                         </li>
                     )

@@ -47,12 +47,13 @@ const [open, setOpen] = React.useState(false);
         
     const renderIngredients = combinedArray.map(item => {
         return(
-            <ul>
+            <ul key={item.ingredient}>
                 <li key={item.ingredient} className="flex spaceBetween ingredientList">
                     <div>
                         {item.ingredient} - {item.measure}
                     </div> 
                     <AddToShoppingList
+                        key={item.ingredient}
                         item={item}
                         add={props.getShoppingItems}
                         shoppingItems={shoppingItems}
@@ -77,7 +78,6 @@ const [open, setOpen] = React.useState(false);
         >
             <DialogTitle id="alert-dialog-slide-title">{data.strMeal}</DialogTitle>
             <DialogContent>
-                <DialogContentText id="alert-dialog-slide-description">
                     <div>
                         <h3>Ingredients</h3>
                         {renderIngredients}
@@ -88,6 +88,7 @@ const [open, setOpen] = React.useState(false);
                         {data.strInstructions}
                     </p>
                     </div>
+                <DialogContentText id="alert-dialog-slide-description">
                 </DialogContentText>
 
             </DialogContent>

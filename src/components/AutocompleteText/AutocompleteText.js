@@ -58,7 +58,8 @@ class AutocompleteText extends Component{
         }
         return (
             <ul>
-                {suggestions.map( item => <li onClick={ () => {
+                {/* need to add index to key because there is double rosemary coming back from api need to filter out in the future */}
+                {suggestions.map( (item, index) => <li key={item+index} onClick={ () => {
                     this.selectedSuggestion();
                     this.props.addIngredient(item);
                 } }>{item}</li>)}
@@ -76,7 +77,7 @@ class AutocompleteText extends Component{
         return(
             <div className="AutocompleteText">
                 
-                <label class="visuallyHidden" htmlFor="ingredients">Ingredients:</label>
+                <label className="visuallyHidden" htmlFor="ingredients">Ingredients:</label>
                     
                 <input 
                     value={this.props.disabled?'Max 3 allowed':text} 

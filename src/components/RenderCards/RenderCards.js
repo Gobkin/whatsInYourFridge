@@ -6,7 +6,8 @@ function RenderCards(props){
     const recipes = props.data;
 
     const cards = recipes.map(recipe =>{
-        return <RecipeCard 
+        return <RecipeCard
+                    key={recipe.strMeal} 
                     data={recipe}
                     getShoppingItems={props.getShoppingItems}
                     shoppingItems={props.shoppingItems}

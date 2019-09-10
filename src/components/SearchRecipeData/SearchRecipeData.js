@@ -32,12 +32,12 @@ class SearchRecipeData extends Component{
     }
 
     componentDidMount(){
-        const { recipeIds }= this.props;
+        const { recipeIds } = this.props;
         this.findRecipeData(recipeIds);
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.recipeIds != prevProps.recipeIds){
+        if (this.props.recipeIds !== prevProps.recipeIds){
             const { recipeIds }= this.props;
             this.findRecipeData(recipeIds);
         }

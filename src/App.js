@@ -80,7 +80,7 @@ class App extends Component {
                 shoppingItems={shoppingItems} 
                 removeItem={this.removeShoppingItem}
               />
-              <button className="clear delete" onClick={this.clearShoppingList}>Clear</button>
+              <button className="clear delete" onClick={this.clearShoppingList} aria-label="clear shopping list">Clear</button>
             </div>
           </div>
         </section>

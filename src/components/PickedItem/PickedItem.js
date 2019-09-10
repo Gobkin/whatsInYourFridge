@@ -7,7 +7,7 @@ function PickedItem(props){
     return(
         <li className="flex spaceBetween alignCenter" key="ingredient">
             {ingredient}
-            <button className="delete" onClick={()=> props.deleteItem(ingredient)}><DeleteIcon/></button>
+            <button className="delete" onClick={()=> props.deleteItem(ingredient)}><DeleteIcon aria-label="delete"/></button>
         </li>
     )
 }

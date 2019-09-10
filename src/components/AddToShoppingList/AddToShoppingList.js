@@ -36,7 +36,7 @@ class AddToShoppingList extends Component{
             <div>
                  
                 <button disabled={this.state.isOnTheList?true:false} onClick={()=>{this.props.add(this.props.item.ingredient)}}>
-                    {this.state.isOnTheList?<DoneOutlineIcon />:<ShoppingBasketIcon/>}
+                    {this.state.isOnTheList?<DoneOutlineIcon aria-label="already on the list"/>:<ShoppingBasketIcon aria-label="add to shoping list"/>}
                 </button>
             </div>
         )
