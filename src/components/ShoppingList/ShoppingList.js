@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './ShoppingList.css'
 class ShoppingList extends Component{
     constructor(){
         super();
@@ -24,7 +24,7 @@ class ShoppingList extends Component{
                 shoppingItems.map(item => {
                     return <li key="item">{item}<button onClick={()=>{this.props.removeItem(item)}}>X</button></li>
                 }):
-                <div>Nothing in the list</div>
+                <div className="nothing">Nothing in the list</div>
                 }
             </ul>
         )

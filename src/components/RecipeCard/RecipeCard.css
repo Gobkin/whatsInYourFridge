@@ -1,19 +1,22 @@
 .RecipeCard {
-  border: 2px solid black;
+  border: 3px solid #73C3E5;
   margin: 20px;
   border-radius: 25px;
+  background: #CBF1F5;
 }
 
-.RecipeCard .image-container {
-  max-width: 150px;
-  height: auto;
-  margin: 30px;
+.RecipeCard .content {
+  padding: 20px;
 }
 
-.RecipeCard .image-container img {
-  max-width: 100%;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+.RecipeCard .card-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 22px 0 0 22px;
+  background-position: center;
+}
+
+.RecipeCard:hover {
+  background: #73C3E5;
 }
 /*# sourceMappingURL=RecipeCard.css.map */

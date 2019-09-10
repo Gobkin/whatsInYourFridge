@@ -1,12 +1,13 @@
 import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function PickedItem(props){
     const {ingredient} = props;
     return(
-        <div key="ingredient">
+        <li className="flex space-between align-center" key="ingredient">
             {ingredient}
-            <button onClick={()=> props.deleteItem(ingredient)}>X</button>
-        </div>
+            <button className="delete" onClick={()=> props.deleteItem(ingredient)}><DeleteIcon/></button>
+        </li>
     )
 }
 

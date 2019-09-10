@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './RecipeCard.scss';
 import './RecipeCard.css';
-import AddToShoppingList from '../AddToShoppingList/AddToShoppingList';
-import { thisExpression } from '@babel/types';
-import ShoppingList from '../ShoppingList/ShoppingList';
+import Modal from '../Modal/Modal'
 
 class RecipeCard extends Component{
     constructor(props){
@@ -21,55 +19,33 @@ class RecipeCard extends Component{
             }
         })
     }
+    
 
     render(){
         const {data, shoppingItems} = this.props
-        const ingredientsArray = [];
-        const measurementsArray = [];
-        const ingredientPattern = new RegExp('^strIngredient', 'i');
-        const measurePattern = new RegExp('^strMeasure', 'i');
-        const combinedArray = [];
-        
-        for (let key in data){
-            if (ingredientPattern.test(key) && data[key]){
-                ingredientsArray.push(data[key]);
-            }else if (measurePattern.test(key) && data[key]){
-                measurementsArray.push(data[key]);
-            }
+        const divStyle = {
+            backgroundImage: 'url(' + data.strMealThumb + ')',
+            };
+
+        function bgImage() {
+            return <div className="card-image basis-35" style={divStyle}></div>;
         }
-    
-        ingredientsArray.forEach((item, index) => {
-            const ingrObj = {};
-            ingrObj.ingredient = item;
-            ingrObj.measure = measurementsArray[index];
-            combinedArray.push(ingrObj);
-        });
-        
-        const renderIngredients = combinedArray.map(item => {
-            return(
-                <div>
-                    <li key={item.ingredient}>{item.ingredient} - {item.measure} 
-                    <AddToShoppingList 
-                        item={item}
-                        add={this.props.getShoppingItems}
-                        shoppingItems={shoppingItems}
-                    /></li>
-                </div>
-            )
-        });
-    
-    
         return(
-            <div className="RecipeCard">
-                <h2>{data.strMeal}</h2>
-                <div className="content flex">
-                    <div className="image-container flex">
-                        <img src={data.strMealThumb} alt=""></img>
-                    </div>
-                    <div>
-                        <ul>
-                            {renderIngredients}
-                        </ul>
+            <div className="RecipeCard flex">
+                {bgImage()}
+                <div className="content flex flex-column basis-60">
+                    <h2>{data.strMeal}</h2>
+                    <div className="card-right flex space-around">
+                        <div className="contentContainer flex flex-column">
+                            <strong>{data.strCategory}</strong>
+                            <em>{data.strArea}</em>
+                        </div>
+                        <Modal
+                            className="Modal"
+                            shoppingItems={shoppingItems}
+                            data={data}
+                            getShoppingItems={this.props.getShoppingItems}
+                        />
                     </div>
                 </div>
             </div>

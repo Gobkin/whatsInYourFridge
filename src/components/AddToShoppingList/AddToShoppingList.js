@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import './AddToShoppingList.css'
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 
 class AddToShoppingList extends Component{
     constructor(props){
@@ -31,8 +34,8 @@ class AddToShoppingList extends Component{
         return(
             <div>
                  
-                <button onClick={()=>{this.props.add(this.props.item.ingredient)}}>
-                    {this.state.isOnTheList?'is on the list':'add to shopping list->'}
+                <button disabled={this.state.isOnTheList?true:false} onClick={()=>{this.props.add(this.props.item.ingredient)}}>
+                    {this.state.isOnTheList?<DoneOutlineIcon />:<ShoppingBasketIcon/>}
                 </button>
             </div>
         )

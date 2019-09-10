@@ -4,18 +4,53 @@
 // prevents shift when scrollbar appears
 html {
   overflow-y: scroll;
+  // font-size: 62.5%;
 }
+
+body{
+  font-family: 'Roboto';
+  // background: #FFE6EB;
+}
+
+.wrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1{
+  border: 3px solid #73C3E5;
+  border-top: 5px solid #73C3E5;
+  border-bottom: 5px solid #73C3E5;
+  width: 100%;
+  height: 100px;
+  border-radius: 50%;
+  font-family: 'Yellowtail';
+}
+
+h2{
+  margin: 5px 0;
+}
+
+// Flex Styles
 
 .flex {
   display:flex;
 }
 
 .basis-25{
-  flex-basis: 50%;
+  flex-basis: 25%;
+}
+
+.basis-35{
+  flex-basis: 35%;
 }
 
 .basis-50{
   flex-basis: 50%;
+}
+
+.basis-60{
+  flex-basis: 60%;
 }
 
 .basis-75{
@@ -34,21 +69,76 @@ html {
   flex-direction: column;
 }
 
+.space-between{
+  justify-content: space-between;
+}
+
+.space-around{
+  justify-content: space-around;
+}
+
+.center{
+  justify-content: center;
+}
+
+.align-center{
+  align-items:center;
+}
+
 .border{
-  border:2px solid black;
+  border:3px solid black;
   margin:20px;
-  border-radius: 25px;
 }
 
 .App {
   text-align: center;
 
   .input{
-    width:300px;
+    width:75vw;
   }
   
   header{
-    height: 30vh;
+    height: 60vh;
+    border-radius: 95px 95px 0 0;
+    margin: 20px;
+    margin-bottom: 0;
+    background: rgb(188,251,251);
+    background: radial-gradient(circle, rgba(188,251,251,1) 10%, rgba(222,252,252,1) 100%);
+  }
+
+  .content{
+    border-radius: 0 0 20px 20px;
+    margin-top:0;
+    border-top:none;
+  }
+
+  .delete{
+    color:red;
+    border:3px solid red;
+    background:#ffe6eb;
+    border-radius: 50%;
+    padding: 5px 7px;
+  }
+
+  .delete:hover, .delete:focus{
+    color:#ffe6eb;
+    background: red;
+  }
+
+  .image-container{
+    max-width:150px;
+    height: auto;
+    margin: 30px;
+      img{
+          max-width: 100%;
+          align-self: center;
+          border:3px solid #73C3E5;
+      }
+  }
+
+  .recipe-area{
+    background:#7788993d;
+    border-radius: 0 0 0 20px;
   }
 }
 

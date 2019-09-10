@@ -41,8 +41,8 @@ class IngredientForm extends Component{
     render(){
         
         return(
-            <div className="IngredientForm">
-                <form>
+            <div className="IngredientForm flex space-around">
+                <form className="basis-50">
                     <AutocompleteText
                         addIngredient={this.addToList}
                         disabled={this.state.disabled}
@@ -50,17 +50,19 @@ class IngredientForm extends Component{
                     />
                 </form>
 
-                <ul>
-                    {this.props.pickedIngredients.map((ingredient) => {
-                        return(
-                            <PickedItem
-                                ingredient={ingredient}
-                                key={ingredient}
-                                deleteItem={this.deleteItem}
-                            />
-                        );
-                    })}
-                </ul>
+                <div className="picks basis-35">
+                    <ul>
+                        {this.props.pickedIngredients.map((ingredient) => {
+                            return(
+                                <PickedItem
+                                    ingredient={ingredient}
+                                    key={ingredient}
+                                    deleteItem={this.deleteItem}
+                                />
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }

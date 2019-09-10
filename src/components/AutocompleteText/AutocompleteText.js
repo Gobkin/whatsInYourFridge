@@ -75,13 +75,14 @@ class AutocompleteText extends Component{
             <div className="AutocompleteText">
                 
                 <label htmlFor="">
-                    What's In Your Fridge?
+                    needs label
                     <input 
                         value={this.props.disabled?'Max 3 allowed':text} 
                         onChange={this.onTextChange} 
                         disabled={this.props.disabled}
                         type="text"
                         name="ingredients"
+                        placeholder="I have..."
                     />
                 </label>
                 {this.renderSuggestions()}

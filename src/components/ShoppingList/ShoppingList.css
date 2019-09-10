@@ -1,1 +1,13 @@
-/* No CSS *//*# sourceMappingURL=ShoppingList.css.map */
+.ShoppingList {
+  background: #FFFFE0;
+  padding-bottom: 20px;
+}
+
+.ShoppingList ul {
+  list-style: none;
+  padding: 0;
+  font-family: 'Caveat';
+  text-transform: uppercase;
+  font-size: 25px;
+}
+/*# sourceMappingURL=ShoppingList.css.map */

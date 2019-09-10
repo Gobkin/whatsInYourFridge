@@ -183,6 +183,29 @@ html {
   overflow-y: scroll;
 }
 
+body {
+  font-family: 'Roboto';
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  border: 3px solid #73C3E5;
+  border-top: 5px solid #73C3E5;
+  border-bottom: 5px solid #73C3E5;
+  width: 100%;
+  height: 100px;
+  border-radius: 50%;
+  font-family: 'Yellowtail';
+}
+
+h2 {
+  margin: 5px 0;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -190,13 +213,23 @@ html {
 }
 
 .basis-25 {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+}
+
+.basis-35 {
+  -ms-flex-preferred-size: 35%;
+      flex-basis: 35%;
 }
 
 .basis-50 {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+}
+
+.basis-60 {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
 }
 
 .basis-75 {
@@ -223,10 +256,32 @@ html {
           flex-direction: column;
 }
 
+.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.space-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .border {
-  border: 2px solid black;
+  border: 3px solid black;
   margin: 20px;
-  border-radius: 25px;
 }
 
 .App {
@@ -234,10 +289,53 @@ html {
 }
 
 .App .input {
-  width: 300px;
+  width: 75vw;
 }
 
 .App header {
-  height: 30vh;
+  height: 60vh;
+  border-radius: 95px 95px 0 0;
+  margin: 20px;
+  margin-bottom: 0;
+  background: #bcfbfb;
+  background: radial-gradient(circle, #bcfbfb 10%, #defcfc 100%);
+}
+
+.App .content {
+  border-radius: 0 0 20px 20px;
+  margin-top: 0;
+  border-top: none;
+}
+
+.App .delete {
+  color: red;
+  border: 3px solid red;
+  background: #ffe6eb;
+  border-radius: 50%;
+  padding: 5px 7px;
+}
+
+.App .delete:hover, .App .delete:focus {
+  color: #ffe6eb;
+  background: red;
+}
+
+.App .image-container {
+  max-width: 150px;
+  height: auto;
+  margin: 30px;
+}
+
+.App .image-container img {
+  max-width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border: 3px solid #73C3E5;
+}
+
+.App .recipe-area {
+  background: #7788993d;
+  border-radius: 0 0 0 20px;
 }
 /*# sourceMappingURL=App.css.map */

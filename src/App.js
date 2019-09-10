@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import './App.css';
+import Button from '@material-ui/core/Button';
 import IngredientForm from './components/IngredientForm/IngredientForm';
 import Recipes from './components/Recipes/Recipes';
 import ShoppingList from './components/ShoppingList/ShoppingList';
@@ -46,10 +47,10 @@ class App extends Component {
   render(){
     const {pickedItems, shoppingItems} = this.state;
     return (
-      <div className="App flex flex-column">
-        <header className="border">
-          <div className="input basis-100">
-            
+      <div className="App flex flex-column wrapper">
+        <header className="header border flex center">
+          <div className="input">
+            <h1 className="flex center align-center">What's In Your Fridge???</h1>
             <IngredientForm
               pickedIngredients={pickedItems}
               getIds={this.getIds}
@@ -58,27 +59,26 @@ class App extends Component {
           </div>
         </header>
         
-        <div className="flex basis-100 border">
-          <div className="basis-75 border">
-            {
-              pickedItems.length?
+        <section className="content flex basis-25 border">
+          <div className="recipe-area basis-60 border">
+            {pickedItems.length?
             <Recipes 
               pickedIngredients={pickedItems}
               getShoppingItems={this.getShoppingItems}
               shoppingItems={shoppingItems}
             />:
-            <h2>Pick Some Ingredients First!</h2>}
+            <h2>Pick Some Ingredients To See Suggestions.</h2>}
           </div>
 
-          <div className="ShoppingList border basis-25">
+          <div className="ShoppingList border basis-35">
             <h2>Shopping List:  </h2>
-            <button onClick={this.clearShoppingList}>Clear List.</button>
             <ShoppingList 
               shoppingItems={shoppingItems} 
               removeItem={this.removeShoppingItem}
             />
+            <button onClick={this.clearShoppingList}>Clear List.</button>
           </div>
-        </div>
+        </section>
       </div>
     );
   }

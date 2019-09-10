@@ -61,7 +61,7 @@ class Recipes extends Component{
                         shoppingItems={this.props.shoppingItems}
                     />
                     :
-                    <h3>One moment!</h3>
+                    <h3>Sorry, nothing found. Get createive!</h3>
                 }
             </div>
         )

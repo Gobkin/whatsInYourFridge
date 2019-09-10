@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import RecipeCard from '../RecipeCard/RecipeCard';
 import RenderCards from '../RenderCards/RenderCards';
 
 class SearchRecipeData extends Component{
@@ -53,7 +52,7 @@ class SearchRecipeData extends Component{
                     getShoppingItems={this.props.getShoppingItems}
                     shoppingItems={this.props.shoppingItems}
                 />:
-                'Wait a sec plz!'} 
+                'Just one moment!'} 
             </div>
         )
     }
