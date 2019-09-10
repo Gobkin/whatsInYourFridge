@@ -4,7 +4,7 @@
 // prevents shift when scrollbar appears
 html {
   overflow-y: scroll;
-  // font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body{
@@ -17,6 +17,7 @@ body{
   margin: 0 auto;
 }
 
+// TYPOGRAPHY
 h1{
   border: 3px solid #73C3E5;
   border-top: 5px solid #73C3E5;
@@ -25,11 +26,27 @@ h1{
   height: 100px;
   border-radius: 50%;
   font-family: 'Yellowtail';
+  color: #5E7071;
+  font-size: 4.8rem;
 }
 
 h2{
   margin: 5px 0;
+  font-size: 3.2rem;
 }
+
+h3{
+  font-size: 2.5rem;
+}
+
+p,em,strong{
+  font-size: 1.8rem;
+}
+
+li{
+  font-size: 2rem;
+}
+
 
 // Flex Styles
 
@@ -41,8 +58,13 @@ h2{
   flex-basis: 25%;
 }
 
+
 .basis-35{
   flex-basis: 35%;
+}
+
+.basis-40{
+  flex-basis: 40%;
 }
 
 .basis-50{
@@ -61,19 +83,19 @@ h2{
   flex-basis: 100%;
 }
 
-.flex-row{
+.flexRow{
   flex-direction: row;
 }
 
-.flex-column{
+.flexColumn{
   flex-direction: column;
 }
 
-.space-between{
+.spaceBetween{
   justify-content: space-between;
 }
 
-.space-around{
+.spaceAround{
   justify-content: space-around;
 }
 
@@ -81,7 +103,7 @@ h2{
   justify-content: center;
 }
 
-.align-center{
+.alignCenter{
   align-items:center;
 }
 
@@ -89,27 +111,38 @@ h2{
   border:3px solid black;
   margin:20px;
 }
-
+// APP STYLES
 .App {
   text-align: center;
+  
+
+  .right{
+    border-left: 3px solid black;
+    background: rgb(188,251,251);
+    background: radial-gradient(circle, rgba(188,251,251,1) 10%, rgba(222,252,252,1) 100%);
+    border-radius: 0 0 17px 0;
+  }
 
   .input{
     width:75vw;
   }
   
   header{
-    height: 60vh;
+    min-height: 60vh;
     border-radius: 95px 95px 0 0;
     margin: 20px;
     margin-bottom: 0;
     background: rgb(188,251,251);
     background: radial-gradient(circle, rgba(188,251,251,1) 10%, rgba(222,252,252,1) 100%);
+    box-shadow: 18px 22px 30px 0px rgba(0,0,0,0.75);
   }
 
-  .content{
+  section.content{
     border-radius: 0 0 20px 20px;
     margin-top:0;
     border-top:none;
+    background:white;
+    box-shadow: 18px 22px 30px 0px rgba(0,0,0,0.75);
   }
 
   .delete{
@@ -118,6 +151,7 @@ h2{
     background:#ffe6eb;
     border-radius: 50%;
     padding: 5px 7px;
+    font-size: 1.6rem;
   }
 
   .delete:hover, .delete:focus{
@@ -125,7 +159,7 @@ h2{
     background: red;
   }
 
-  .image-container{
+  .imageContainer{
     max-width:150px;
     height: auto;
     margin: 30px;
@@ -136,9 +170,47 @@ h2{
       }
   }
 
-  .recipe-area{
+  .recipeArea{
     background:#7788993d;
     border-radius: 0 0 0 20px;
+  }
+}
+
+@media (max-width:800px){
+  h2{
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width:640px){
+  .App{
+
+    h1{
+      font-size: 3.8rem;
+    }
+    
+    h2{
+      font-size: 2rem;
+    }
+
+    .right{
+      border:none;
+      border-bottom:3px solid black;  
+      border-radius: 0;
+    }
+
+    .recipeArea{
+      border-radius: 0 0 20px 20px;
+    }
+
+  }
+}
+
+@media (max-width:500px){
+  .App{
+    h1{
+      font-size: 2.8rem;
+    }
   }
 }
 

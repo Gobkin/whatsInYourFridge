@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
 import './App.css';
-import Button from '@material-ui/core/Button';
 import IngredientForm from './components/IngredientForm/IngredientForm';
 import Recipes from './components/Recipes/Recipes';
 import ShoppingList from './components/ShoppingList/ShoppingList';
@@ -47,10 +46,10 @@ class App extends Component {
   render(){
     const {pickedItems, shoppingItems} = this.state;
     return (
-      <div className="App flex flex-column wrapper">
+      <div className="App flex flexColumn wrapper">
         <header className="header border flex center">
           <div className="input">
-            <h1 className="flex center align-center">What's In Your Fridge???</h1>
+            <h1 className="flex center alignCenter">What's In Your Fridge?</h1>
             <IngredientForm
               pickedIngredients={pickedItems}
               getIds={this.getIds}
@@ -60,7 +59,7 @@ class App extends Component {
         </header>
         
         <section className="content flex basis-25 border">
-          <div className="recipe-area basis-60 border">
+          <div className="recipeArea basis-60 border">
             {pickedItems.length?
             <Recipes 
               pickedIngredients={pickedItems}
@@ -70,13 +69,15 @@ class App extends Component {
             <h2>Pick Some Ingredients To See Suggestions.</h2>}
           </div>
 
-          <div className="ShoppingList border basis-35">
-            <h2>Shopping List:  </h2>
-            <ShoppingList 
-              shoppingItems={shoppingItems} 
-              removeItem={this.removeShoppingItem}
-            />
-            <button onClick={this.clearShoppingList}>Clear List.</button>
+          <div className="right flex basis-40">
+            <div className="ShoppingList border basis-100">
+              <h2>Shopping List:  </h2>
+              <ShoppingList 
+                shoppingItems={shoppingItems} 
+                removeItem={this.removeShoppingItem}
+              />
+              <button className="clear delete" onClick={this.clearShoppingList}>Clear</button>
+            </div>
           </div>
         </section>
       </div>

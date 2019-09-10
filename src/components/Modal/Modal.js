@@ -48,7 +48,7 @@ const [open, setOpen] = React.useState(false);
     const renderIngredients = combinedArray.map(item => {
         return(
             <ul>
-                <li key={item.ingredient} className="flex space-between ingredient-list">
+                <li key={item.ingredient} className="flex spaceBetween ingredientList">
                     <div>
                         {item.ingredient} - {item.measure}
                     </div> 
@@ -84,7 +84,9 @@ const [open, setOpen] = React.useState(false);
                     </div>
                     <div>
                     <h3>Directions:</h3>
-                    {data.strInstructions}
+                    <p>
+                        {data.strInstructions}
+                    </p>
                     </div>
                 </DialogContentText>
 

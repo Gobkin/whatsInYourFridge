@@ -181,6 +181,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 html {
   overflow-y: scroll;
+  font-size: 62.5%;
 }
 
 body {
@@ -200,10 +201,25 @@ h1 {
   height: 100px;
   border-radius: 50%;
   font-family: 'Yellowtail';
+  color: #5E7071;
+  font-size: 4.8rem;
 }
 
 h2 {
   margin: 5px 0;
+  font-size: 3.2rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+p, em, strong {
+  font-size: 1.8rem;
+}
+
+li {
+  font-size: 2rem;
 }
 
 .flex {
@@ -220,6 +236,11 @@ h2 {
 .basis-35 {
   -ms-flex-preferred-size: 35%;
       flex-basis: 35%;
+}
+
+.basis-40 {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
 }
 
 .basis-50 {
@@ -242,27 +263,27 @@ h2 {
       flex-basis: 100%;
 }
 
-.flex-row {
+.flexRow {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
 }
 
-.flex-column {
+.flexColumn {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.space-between {
+.spaceBetween {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-.space-around {
+.spaceAround {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -273,7 +294,7 @@ h2 {
           justify-content: center;
 }
 
-.align-center {
+.alignCenter {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -288,23 +309,35 @@ h2 {
   text-align: center;
 }
 
+.App .right {
+  border-left: 3px solid black;
+  background: #bcfbfb;
+  background: radial-gradient(circle, #bcfbfb 10%, #defcfc 100%);
+  border-radius: 0 0 17px 0;
+}
+
 .App .input {
   width: 75vw;
 }
 
 .App header {
-  height: 60vh;
+  min-height: 60vh;
   border-radius: 95px 95px 0 0;
   margin: 20px;
   margin-bottom: 0;
   background: #bcfbfb;
   background: radial-gradient(circle, #bcfbfb 10%, #defcfc 100%);
+  -webkit-box-shadow: 18px 22px 30px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 18px 22px 30px 0px rgba(0, 0, 0, 0.75);
 }
 
-.App .content {
+.App section.content {
   border-radius: 0 0 20px 20px;
   margin-top: 0;
   border-top: none;
+  background: white;
+  -webkit-box-shadow: 18px 22px 30px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 18px 22px 30px 0px rgba(0, 0, 0, 0.75);
 }
 
 .App .delete {
@@ -313,6 +346,7 @@ h2 {
   background: #ffe6eb;
   border-radius: 50%;
   padding: 5px 7px;
+  font-size: 1.6rem;
 }
 
 .App .delete:hover, .App .delete:focus {
@@ -320,13 +354,13 @@ h2 {
   background: red;
 }
 
-.App .image-container {
+.App .imageContainer {
   max-width: 150px;
   height: auto;
   margin: 30px;
 }
 
-.App .image-container img {
+.App .imageContainer img {
   max-width: 100%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -334,8 +368,37 @@ h2 {
   border: 3px solid #73C3E5;
 }
 
-.App .recipe-area {
+.App .recipeArea {
   background: #7788993d;
   border-radius: 0 0 0 20px;
+}
+
+@media (max-width: 800px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .App h1 {
+    font-size: 3.8rem;
+  }
+  .App h2 {
+    font-size: 2rem;
+  }
+  .App .right {
+    border: none;
+    border-bottom: 3px solid black;
+    border-radius: 0;
+  }
+  .App .recipeArea {
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .App h1 {
+    font-size: 2.8rem;
+  }
 }
 /*# sourceMappingURL=App.css.map */

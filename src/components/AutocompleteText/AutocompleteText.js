@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './AutocompleteText.scss';
-import './AutocompleteText.css';
+
 
 
 class AutocompleteText extends Component{
@@ -74,17 +74,17 @@ class AutocompleteText extends Component{
         return(
             <div className="AutocompleteText">
                 
-                <label htmlFor="">
-                    needs label
-                    <input 
-                        value={this.props.disabled?'Max 3 allowed':text} 
-                        onChange={this.onTextChange} 
-                        disabled={this.props.disabled}
-                        type="text"
-                        name="ingredients"
-                        placeholder="I have..."
-                    />
-                </label>
+                <label class="visuallyHidden" htmlFor="ingredients">Ingredients:</label>
+                    
+                <input 
+                    value={this.props.disabled?'Max 3 allowed':text} 
+                    onChange={this.onTextChange} 
+                    disabled={this.props.disabled}
+                    type="text"
+                    id="ingredients"
+                    placeholder="I have..."
+                />
+                
                 {this.renderSuggestions()}
             </div>
         )

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './ShoppingList.css'
+import './ShoppingList.scss'
+import DeleteIcon from '@material-ui/icons/Delete';
+
 class ShoppingList extends Component{
     constructor(){
         super();
@@ -22,7 +24,14 @@ class ShoppingList extends Component{
             <ul>
                 {shoppingItems.length?
                 shoppingItems.map(item => {
-                    return <li key="item">{item}<button onClick={()=>{this.props.removeItem(item)}}>X</button></li>
+                    return (
+                        <li className="flex spaceBetween alignCenter" key="item">
+                            {item}
+                            <button class="delete" onClick={()=>{this.props.removeItem(item)}}>
+                                <DeleteIcon/>
+                            </button>
+                        </li>
+                    )
                 }):
                 <div className="nothing">Nothing in the list</div>
                 }

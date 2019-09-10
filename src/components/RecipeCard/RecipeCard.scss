@@ -6,17 +6,36 @@
 
     .content{
         padding: 20px;
+        text-align: left;
 
     }
 
-    .card-image{
+    .cardImage{
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 22px 0 0 22px;
         background-position: center;
     }
+
+    button{
+        font-size: 1.6rem;
+    }
 }
 
 .RecipeCard:hover{
     background:#73C3E5;
+}
+
+@media (max-width:800px){
+    .RecipeCard{
+        button{
+            padding:5px;
+        }
+    }
+}
+
+@media (max-width: 440px){
+    .RecipeCard{
+        flex-direction: column;
+    }
 }

@@ -14,4 +14,13 @@
   border-radius: 30px;
   background: #CBF1F5;
 }
+
+@media (max-width: 480px) {
+  .IngredientForm {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 /*# sourceMappingURL=IngredientsForm.css.map */

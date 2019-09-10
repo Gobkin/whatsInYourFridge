@@ -1,6 +1,12 @@
 .ShoppingList {
   background: #FFFFE0;
   padding-bottom: 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  min-height: 30vh;
+  max-height: 90vh;
+  border: 1px solid black;
 }
 
 .ShoppingList ul {
@@ -9,5 +15,18 @@
   font-family: 'Caveat';
   text-transform: uppercase;
   font-size: 25px;
+}
+
+.ShoppingList ul .delete {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.ShoppingList ul li {
+  margin: 10px;
+}
+
+.ShoppingList .clear {
+  padding: 15px 7px;
 }
 /*# sourceMappingURL=ShoppingList.css.map */

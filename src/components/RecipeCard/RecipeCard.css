@@ -7,16 +7,36 @@
 
 .RecipeCard .content {
   padding: 20px;
+  text-align: left;
 }
 
-.RecipeCard .card-image {
+.RecipeCard .cardImage {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 22px 0 0 22px;
   background-position: center;
 }
 
+.RecipeCard button {
+  font-size: 1.6rem;
+}
+
 .RecipeCard:hover {
   background: #73C3E5;
+}
+
+@media (max-width: 800px) {
+  .RecipeCard button {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 440px) {
+  .RecipeCard {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 /*# sourceMappingURL=RecipeCard.css.map */

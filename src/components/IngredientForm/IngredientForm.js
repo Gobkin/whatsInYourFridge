@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AutocompleteText from '../AutocompleteText/AutocompleteText';
-import './IngredientsForm.css';
+import './IngredientsForm.scss';
 import PickedItem from '../PickedItem/PickedItem';
 
 
@@ -41,7 +41,7 @@ class IngredientForm extends Component{
     render(){
         
         return(
-            <div className="IngredientForm flex space-around">
+            <div className="IngredientForm flex spaceAround">
                 <form className="basis-50">
                     <AutocompleteText
                         addIngredient={this.addToList}
