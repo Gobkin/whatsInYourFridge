@@ -1,6 +1,7 @@
 import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard';
 
+// renders recipe cards to the page
 function RenderCards(props){
     const recipes = props.data;
 

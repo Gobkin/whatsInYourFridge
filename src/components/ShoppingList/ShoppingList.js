@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './ShoppingList.scss'
 import DeleteIcon from '@material-ui/icons/Delete';
 
+// renders shopping list to the page
 class ShoppingList extends Component{
     constructor(){
         super();

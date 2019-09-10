@@ -15,12 +15,14 @@ class App extends Component {
     }
   }
 
+  // gets recipe Ids
   getIds = (array) => {
     this.setState({
       pickedItems:array,
     });
   }
 
+  // gets shopping list items
   getShoppingItems = (item) => {
     const shoppingItemsClone = [...this.state.shoppingItems];
     shoppingItemsClone.push(item);
@@ -29,6 +31,7 @@ class App extends Component {
     })
   }
 
+  // removes item from shopping list
   removeShoppingItem = (item) => {
     const shoppingItemsClone = [...this.state.shoppingItems];
     const filteredList = shoppingItemsClone.filter( element => {return element !== item});
@@ -37,6 +40,7 @@ class App extends Component {
     })
   }
 
+  // clears shopping list completely
   clearShoppingList = () => {
     this.setState({
       shoppingItems:[],

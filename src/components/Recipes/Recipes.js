@@ -12,6 +12,7 @@ class Recipes extends Component{
         }
     }
 
+    // gets recipe ids form api
     searchRecipeIds = (array) =>{
         const pickedIngredients = array;
         const foundRecipeIds = [];
@@ -38,7 +39,7 @@ class Recipes extends Component{
     }
 
     
-    componentDidUpdate(prevProps, prevState){
+    componentDidUpdate(prevProps){
         const {pickedIngredients} = this.props;
         if (pickedIngredients !== prevProps.pickedIngredients){
             this.searchRecipeIds(pickedIngredients);

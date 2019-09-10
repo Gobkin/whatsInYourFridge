@@ -14,6 +14,7 @@ class AutocompleteText extends Component{
         }
     }
 
+    // getting full list of ingridients from api
     getListItems(){
         const INGREDIENTS_API_URL = 'https://www.themealdb.com/api/json/v2/8673533/list.php?i=list';
         axios.get(INGREDIENTS_API_URL)
@@ -28,6 +29,7 @@ class AutocompleteText extends Component{
         });
     }
 
+    // autocomplete functionality
     onTextChange = e => {
         const value = e.target.value;
         let suggestions = [];

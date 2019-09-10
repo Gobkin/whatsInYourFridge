@@ -14,6 +14,7 @@ class IngredientForm extends Component{
         }
     }
     
+    // adds ingredients to the picked list
     addToList = (ingredient) => {
         // this one here to prevent mutability because... react
         const pickedIngredientsClone = [...this.props.pickedIngredients];
@@ -26,6 +27,7 @@ class IngredientForm extends Component{
         });
     }
 
+    // removes ingredients from the piecked list
     deleteItem = (ingredient) => {
         const {pickedIngredients} = this.props;
         const numberOfItems = pickedIngredients.length - 1;

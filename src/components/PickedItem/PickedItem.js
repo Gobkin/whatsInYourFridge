@@ -1,6 +1,7 @@
 import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 
+// renders picked items to the page
 function PickedItem(props){
     const {ingredient} = props;
     return(

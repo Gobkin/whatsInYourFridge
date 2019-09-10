@@ -11,6 +11,7 @@ class AddToShoppingList extends Component{
         }
     }
 
+    // Checking if the item already on the list
     componentDidUpdate(prevProps){
         if (prevProps.shoppingItems !== this.props.shoppingItems){
 

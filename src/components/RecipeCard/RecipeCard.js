@@ -8,7 +8,8 @@ class RecipeCard extends Component{
         this.state = {
         }
     }
-
+    
+    // checks if the ingredient already on the shopping list
     shoppingCheck(item, array){
         array.forEach((element)=>{
             console.log('checking for duplicates')
@@ -26,6 +27,7 @@ class RecipeCard extends Component{
             backgroundImage: 'url(' + data.strMealThumb + ')',
             };
 
+        // sets dynamically bg-image
         function bgImage() {
             return <div className="cardImage basis-35" style={divStyle}></div>;
         }

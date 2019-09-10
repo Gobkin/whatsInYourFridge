@@ -11,6 +11,7 @@ class SearchRecipeData extends Component{
         }
     }
 
+    // gets full recipe data from the api by recipe id
     findRecipeData = (array) =>{
         const RECIPE_API_URL = 'https://www.themealdb.com/api/json/v2/8673533/lookup.php?'
         const recipePromises = [];
@@ -52,7 +53,7 @@ class SearchRecipeData extends Component{
                     getShoppingItems={this.props.getShoppingItems}
                     shoppingItems={this.props.shoppingItems}
                 />:
-                'Just one moment!'} 
+                <em>Just one moment!</em>} 
             </div>
         )
     }
