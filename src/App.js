@@ -4,6 +4,7 @@ import './App.css';
 import IngredientForm from './components/IngredientForm/IngredientForm';
 import Recipes from './components/Recipes/Recipes';
 import ShoppingList from './components/ShoppingList/ShoppingList';
+import firebase from './firebase';
 
 class App extends Component {
   constructor(){
@@ -11,7 +12,7 @@ class App extends Component {
     this.state = {
       pickedItems: [],
       shoppingItems: [],
-
+      dbList: [],
     }
   }
 
@@ -45,6 +46,31 @@ class App extends Component {
     this.setState({
       shoppingItems:[],
     })
+  }
+
+  componentDidMount(){
+    const dbRef = firebase.database().ref();
+    dbRef.on('value', (response) => {
+      const newState = [];
+      const data = response.val();
+
+      for (let key in data) {
+        newState.push(data[key]);
+      }
+      
+      this.setState({
+        shoppingItems: newState,
+        dbList: newState,
+      });
+
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if (prevState.shoppingItems !== this.state.shoppingItems){
+      const dbRef = firebase.database().ref();
+      
+    }
   }
 
   render(){

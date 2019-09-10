@@ -26,15 +26,15 @@ class ShoppingList extends Component{
                 {shoppingItems.length?
                 shoppingItems.map(item => {
                     return (
-                        <li className="flex spaceBetween alignCenter" key="item">
+                        <li className="flex spaceBetween alignCenter" key={item}>
                             {item}
-                            <button class="delete" onClick={()=>{this.props.removeItem(item)}}>
+                            <button className="delete" onClick={()=>{this.props.removeItem(item)}}>
                                 <DeleteIcon aria-label="delete"/>
                             </button>
                         </li>
                     )
                 }):
-                <div className="nothing">Nothing in the list</div>
+                <div className="nothing">Nothing on the list</div>
                 }
             </ul>
         )

@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyDnCAoRpLq__JRIdQava1AU5laNdKIzUeg",
     authDomain: "whats-in-your-fridge-561e0.firebaseapp.com",
     databaseURL: "https://whats-in-your-fridge-561e0.firebaseio.com",
@@ -9,6 +9,6 @@ const firebaseConfig = {
     messagingSenderId: "555250619075",
     appId: "1:555250619075:web:5cfeb80a3750faf7628876"
 };
-// firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 
-export default firebaseConfig;
+export default firebase;
